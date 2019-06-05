@@ -7,8 +7,8 @@ import C1S06.C1S06test1 as aac
 print(aac.b)
 
 #from module import a    # 可以直接导入具体的变量、模块
-from C1S06.C1S06test1 import a:
-    print(a)
+from C1S07range import c
+    print(c)
 
 from C1S06 import * # *可以导入全部的变量，导入的变量为C1S06中被内置模块所定义的变量
-#     print(a)
+    print(a)
