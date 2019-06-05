@@ -9,6 +9,7 @@
 # 包和模块不会被重复导入
 
 # 避免模块间的互相循环导入
+# 入口文件
 
 import sys
 import datetime
