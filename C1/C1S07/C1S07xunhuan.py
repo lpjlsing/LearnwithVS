@@ -25,7 +25,7 @@ for x in a:
 else:
     print('hehe')
 
-for y in range(0,10): # 0，第一个参数为开始数字。10，第二个餐宿为可改变的数量， range 函数
+for y in range(0,10): # 0，第一个参数为开始数字。10，第二个餐宿为可改变的数量, range 函数
     print(y)
 
 for y in range(0,10,2):
