@@ -25,10 +25,12 @@ class Student(Human): # Human为Student的父类，Human为子类
                                       # 子类调用时一定要传入self ******
                                       # 这里使用一个类调用了一个实例方法，为python独有
                                       # 实例化调用时python自动调用了self，
-                                      # 而对父类实例方法调用时init相当于普通实例方法，此时必须传入全部变量，因此必须有self 传入
+                                      # 通过父类调用init相当于普通实例方法，此时必须传入全部变量，因此必须有self 传入 ******
         # 第二种继承(推荐)
         super(Student,self).__init__(name,age) # super代表父类，这里代表Human
-    
+                                               # super中为子类变量,它的后面接父类模块变量
+        super(Student,self).get_name()
+        
 
 
     def do_work(self):  #使用类调用self时，传入任意参数均可完成函数调用 ******
