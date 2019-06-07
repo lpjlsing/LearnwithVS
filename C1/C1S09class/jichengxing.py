@@ -5,7 +5,7 @@
 
 继承开闭原则
 
-super函数作为函数内部父类的继承，更换父类时只需要更改class处父类名称即可
+super关键字函数作为函数内部父类的继承，更换父类时只需要更改class处父类名称即可
 子类内部的父类可以通过super函数来完成自动更改调用新的父类
 
 """
@@ -27,7 +27,7 @@ class Student(Human): # Human为Student的父类，Human为子类
                                       # 实例化调用时python自动调用了self，
                                       # 通过父类调用init相当于普通实例方法，此时必须传入全部变量，因此必须有self 传入 ******
         # 第二种继承(推荐)
-        super(Student,self).__init__(name,age) # super代表父类，这里代表Human
+        super(Student,self).__init__(name,age) # super代表父类，为父类关键字，这里代表Human
                                                # super中为子类变量,它的后面接父类模块变量
         super(Student,self).get_name()
         
