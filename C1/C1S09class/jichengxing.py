@@ -29,7 +29,7 @@ class Student(Human): # Human为Student的父类，Human为子类
         # 第二种继承(推荐)
         super(Student,self).__init__(name,age) # super代表父类，为父类关键字，这里代表Human
                                                # super中为子类变量,它的后面接父类模块变量
-        super(Student,self).get_name()## 
+        super(Student,self).get_name()#ddd
         
 
 
