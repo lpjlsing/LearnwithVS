@@ -6,12 +6,15 @@
 1. 闭包： = 函数+环境变量，环境变量需要被函数引用才能使闭包函数，JS，python中使用
         从模块函数外部间接调用函数内部变量
         如果仅是调用局部变量，函数并不是闭包函数 ******
+        可以避免使用全局变量 ******
 环境变量： 在闭包外部，但非全局变量，
 __closure__[0].cell_contents： 可以查询第 [0] 个环境变量内存位置和具体的值
 
 闭包环境变量可以保存上一次调用的状态！！！   ******
 
 nonlocal：强制使变量为 非本地局部变量
+
+(return 变量, 函数) --> 返回了元组类型
 
 2. 匿名函数：
 
@@ -30,10 +33,10 @@ def curve_pre():
               # 如果删除这个局部变量，则仍为闭包，则当调用b时b才是环境变量，curve_pre()才能使一个闭包
         print('闭包内函数变量与环境变量相同时：',b)
         return y 
-        return curve # 返回函数，形成闭包
+        return curve # 闭包函数的返回值没特殊地方，跟非闭包的一样
     print('闭包内部函数外部变量：',b)
     curve(2)
-    return curve # 如果这里返回 curve_pre，因为 curve_pre 并没有环境变量的调用，它并不是闭包函数
+    return curve # 返回函数，形成闭包
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 a = 4
@@ -52,12 +55,13 @@ def go(step):
     global origin # 全局变量声明
     new_pos = origin + step 
     origin = new_pos
-    return origin 
+    return new_pos, origin, go # return 变量, 函数 --> 返回了元组类型
+ #   return go
 # 闭包实现：
 def factory(pos): # 工厂模式
     def go(step):
         nonlocal pos # 闭包可以直接声明全局变量，不需要去直接调用闭包函数外部的全局变量 ******
-                     # nonlocal声明pos不是本地局部变量，因为 new_pos 里面已经出现了pos
+                     # nonlocal声明pos不是本地局部变量，因为 factory(pos) 里面已经出现了pos
         new_pos2 = pos + step
         pos = new_pos2
         return new_pos2
