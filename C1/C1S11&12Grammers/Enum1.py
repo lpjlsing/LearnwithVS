@@ -47,7 +47,7 @@ print('~~~~~~~~~~~~~~~~~')
 
 r = VIP.LONGDD == VIP.DD
 r1 = VIP.LONGDD is VIP.DD
-print('枚举间比较 == ：',r)
+print('枚举间比较 == ：',r) # 枚举本身是个类，因此不能进行类似赋值的比较，可以进行类似字符串的比较
 print('枚举间比较 is ：',r1)
 print('~~~~~~~~~~~~~~~~~')
 
