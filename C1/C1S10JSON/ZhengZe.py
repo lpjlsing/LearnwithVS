@@ -127,14 +127,16 @@ print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 # 组
 z = 'abcabcabcabcabcabc'
 z1 = re.findall('(abc){2}',z) # (str) 即表示一组字符串的 且 关系
+print(z1)
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 # 匹配模式：大小写，替换。。。
 print('匹配模式: ')
 l = 'PythonC#TavaPHPC#Tensorflow'
-l1 = re.findall('c#.{1}', l, re.I) # re.I 表示忽略大小写, 
-l2 = re.findall('c#.{1}', l, re.I | re.S) # re.S 表示 . 符号将匹配所有字符，包括 \n
+l1 = re.findall('c#.{2}', l, re.I) # re.I 表示忽略大小写, 默认为全是大写输出
+l2 = re.findall('c#.{1}', l, re.I | re.S) # re.S 表示符号将匹配所有字符，包括 \n
                                           # 这里的 | 表示 且 关系
+                                          # c#.{1}中的 . 表示它前面的字符串#后面还可再取{1}位字符
 l3 = re.findall('P.{1}', l, re.I | re.S)                                          
 print('l1 = ',l1) 
 print('l2 = ',l2) 
