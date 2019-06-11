@@ -5,8 +5,9 @@
 目的-网页-标签 
 
 根据http请求，向服务器发送，获取返回的http，最后用re提取所需数据
+乱码时，配置headers解决。https://blog.csdn.net/qq183837971/article/details/81631360
 
-断电调试 F5 F10 F11
+断点调试 F5 F10 F11
 
 
 """ 
@@ -25,10 +26,13 @@ class Spider():
 
     def __fetch__content(self): # 私有方法 __fetch__, 实例方法需要self
         r = request.urlopen(Spider.url) # 实例方法中读取url
+        # response = request.get(url)
+        # print(response.encoding)  # 输出url的编码类型
         htmls = r.read()  # bytes 
 #        htmls.decode('utf-8','ignore')
-        htmls = str(htmls, encoding='utf-8',errors="replace") 
+        htmls = str(htmls, encoding='utf-8',errors="ignore") 
                               # utf-8编码 strict，replace, ignore
+                              # 乱码时，配置headers解决。https://blog.csdn.net/qq183837971/article/details/81631360
         a = 1
 
     def go(self):  # 公开方法，这里是入口方法
