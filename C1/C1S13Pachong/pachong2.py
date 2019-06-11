@@ -3,6 +3,8 @@
 
 加入定时器
 
+精炼爬虫模块, stripe()函数
+
 """ 
 
 import datetime
@@ -25,7 +27,7 @@ class Spider(): # 爬取数据
     root_pattern = '<span class="txt">([\s\S]*?)</li>'
         # 正则表达式来匹配的字符串定位标签    
         # *：匹配一次或多次  ?: 非贪婪匹配    
-    name_pattern = '<i class="nick" title=([\s\S]*?)</i>' # 定位名字
+    name_pattern = '<i class="nick" title=([\s\S]*?)</i>' # re 来定位名字
     hot_pattern = '<i class="js-num">([\s\S]*?)</i>' # 定位观看人数
 
     def __fetch_content(self): # 私有方法 __fetch, 实例方法需要self
@@ -59,11 +61,19 @@ class Spider(): # 爬取数据
             anchor = {'name':name, 'hot':hot}  # 字典形式存储需要的数据类型
             anchors.append(anchor)  # 找到的列表信息添加到字典中
             sum += 1
-        a = 1  # 调试变量  
-        print(anchors) 
+#        a = 1  # 调试变量  
+        # print(anchors) 输出字典完整内容
         print(anchors[0])
         print('当前总数：', sum)
         print('Anchors Finished Time: ', datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        return anchors
+
+    def __refine(self, anchors): # 精炼得到的字典数据类型
+        l = lambda anchor:{
+            'name':anchor['name'][0].strip(),
+            'hot':anchor['hot'][0]
+            }
+        return map(l, anchors)
 
     # 入口函数 
     def go(self):  # 公开方法，这里是入口函数
@@ -71,14 +81,17 @@ class Spider(): # 爬取数据
         crawl_start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 爬取时间
         print('Start Time : ',crawl_start_time)
         htmls = self.__fetch_content()
-        self.__analysis(htmls) 
-       # 定时器，定时半小时执行爬取程序，计算整个过程一次爬取时间，30S-爬取所用时间为间隔时长
-        crawl_space_time = 30 - (float(int(datetime.datetime.now().timestamp())) - time.mktime(time.strptime(crawl_start_time,'%Y-%m-%d %H:%M:%S')))
-        # print("==========================================================================================")
-        print("       爬取结束!等待下一次爬取,下一次爬取将于[" + str(crawl_space_time) + '] 秒后进行……      ')
-        # print("==========================================================================================")
-        t = Timer(crawl_space_time, Spider)
-        t.start()
+        anchors = self.__analysis(htmls) # 接受私有函数return值
+        anchors = list(self.__refine(anchors))
+        print(anchors)
+    #    # 定时器，定时半小时执行爬取程序，计算整个过程一次爬取时间，30S-爬取所用时间为间隔时长
+    #     crawl_space_time = 30 - (float(int(datetime.datetime.now().timestamp())) - time.mktime(time.strptime(crawl_start_time,'%Y-%m-%d %H:%M:%S')))
+    #     # print("==========================================================================================")
+    #     print("       爬取结束!等待下一次爬取,下一次爬取将于[" + str(crawl_space_time) + '] 秒后进行……      ')
+    #     # print("==========================================================================================")
+    #     t = Timer(crawl_space_time, Spider)
+    #     t.start()
+
 
 spider = Spider()
 spider.go()
