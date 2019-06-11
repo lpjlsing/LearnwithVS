@@ -122,6 +122,7 @@ class Spider(): # 爬取数据
         anchors = list(self.__refine(anchors))
         anchors = self.__sort(anchors)
         self.__show(anchors)  # 调用所需函数
+
         # print(anchors)        
         print('Anchors Finished Time: ', datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     #    # 定时器，定时半小时执行爬取程序，计算整个过程一次爬取时间，30S-爬取所用时间为间隔时长
