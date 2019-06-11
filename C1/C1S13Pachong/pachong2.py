@@ -1,18 +1,6 @@
 """ 
 爬虫
 
-爬虫前奏： 
-目的-网页-标签 
-
-定位标签： 闭合性
-
-根据http请求，向服务器发送，获取返回的http，最后用re提取所需数据
-编码类型控制: strict，replace, errors='ignore'
-乱码时，配置headers解决。https://blog.csdn.net/qq183837971/article/details/81631360
-
-断点调试 F5 F10 F11
-
-
 """ 
 
 import re
@@ -27,8 +15,8 @@ from urllib import request
 
 
 class Spider():
-    url = 'https://www.douyu.com/g_DOTA2'  # 斗鱼解码有错误
-    root_pattern = '<div class="DyListCover-info">([\s\S]*?)</div>'
+    url = 'https://www.huya.com/g/dota2'
+    root_pattern = '<li class="game-live-item" gid="7">([\s\S]*?)<li>'
         # 正则表达式来匹配的字符串定位标签
         # *：匹配一次或多次  ?: 非贪婪匹配
 
