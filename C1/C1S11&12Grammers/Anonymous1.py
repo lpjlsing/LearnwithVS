@@ -10,7 +10,7 @@ lambda:
 
 三元表达式：条件为真时返回的结果 if 条件 else 条件为假时返回的结果
 
-map: map(function, *iterables)，map的输出通过list()函数导出，可以优化代码，但没有提高代码效率
+map: map(function, *iterables)，map的输出通过list()函数导出，可以优化代码，但没有提高代码效率  ******
 
 reduce：处于 functools包中, reduce(function, sequence[, initial]) 
         连续计算：连续调用函数，最后返回一个数值或字符串    ******

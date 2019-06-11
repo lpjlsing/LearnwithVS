@@ -1,4 +1,7 @@
-""" 
+""" (模块注释)
+
+类注释，方法注释
+
 爬虫
 
 加入定时器
@@ -10,7 +13,7 @@
 reverse
 如果需要，把字符串转换成数字
 
-展示函数 __show()
+展示函数 __show()， 这里在把数据传入数据库时可以通过更改这里实现  ******
 
 """ 
 
@@ -30,6 +33,10 @@ from threading import Timer # 定时器
 
 
 class Spider(): # 爬取数据
+    """ 
+    类注释
+
+    """
     url = 'https://www.huya.com/g/dota2'
     root_pattern = '<span class="txt">([\s\S]*?)</li>'
         # 正则表达式来匹配的字符串定位标签    
@@ -57,6 +64,11 @@ class Spider(): # 爬取数据
 
     # 分析网址
     def __analysis(self, htmls):  # 分析调用的htmls
+        """  
+        
+        方法注释
+
+        """
         root_html = re.findall(Spider.root_pattern, htmls)
         anchors = [] # 这个列表用于存储爬到的数据
         print(root_html[0])
@@ -79,18 +91,26 @@ class Spider(): # 爬取数据
             'name':anchor['name'][0].strip(),
             'hot':anchor['hot'][0]
             }
-        return map(l, anchors)
+        return map(l, anchors) # map返回列表类型数据
 
     def __sort(self, anchors):  # 排序函数
         anchors = sorted(anchors, key = self.__sort_seed, reverse = True)  # 对获得的数据排序
         return anchors  # 
     
     def __sort_seed(self, anchor): # 
-        return anchor['hot']
+        r = re.findall('\d*', anchor['hot']) # 这里字符串通过re转成数字文本，*保证小数点后数字也导出来
+        number = float(r[0]) # 文本换成数字，采用float类型数字
+        if '万' in anchor['hot']: # 简写数字
+            number *= 10000
+        return number # 返回最终的数字结果
 
-    def __show(self, anchors): #展示函数
-        for anchor in anchors:
-            print(anchor['name'] + '-->' + anchor['hot']) # 打印排序结果
+    def __show(self, anchors): # 展示函数，当传入数据库时，更改这里
+
+         print('实时排名：')
+         for rank in range(0, len(anchors)): # 打印排序结果
+            print(str(rank + 1) + ':' 
+            + anchors[rank]['name'] + '    ' 
+            + anchors[rank]['hot']) 
 
     # 入口函数 
     def go(self):  # 公开方法，这里是入口函数
