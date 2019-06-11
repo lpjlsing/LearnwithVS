@@ -4,7 +4,10 @@
 爬虫前奏： 
 目的-网页-标签 
 
+定位标签： 闭合性
+
 根据http请求，向服务器发送，获取返回的http，最后用re提取所需数据
+编码类型控制: strict，replace, ignore
 乱码时，配置headers解决。https://blog.csdn.net/qq183837971/article/details/81631360
 
 断点调试 F5 F10 F11
@@ -31,10 +34,18 @@ class Spider():
         htmls = r.read()  # bytes 
 #        htmls.decode('utf-8','ignore')
         htmls = str(htmls, encoding='utf-8',errors="ignore") 
-                              # utf-8编码 strict，replace, ignore
+                              # 
                               # 乱码时，配置headers解决。https://blog.csdn.net/qq183837971/article/details/81631360
-        a = 1
+ #       a = 1 # 测试用变量
+# class="DyListCover-info"
+# class="DyListCover-user"
+# class="DyListCover-hot"
 
+    # 分析网址
+    def __analysis(self, htmls):  # 分析调用的htmls
+        pass
+
+    # 入口函数
     def go(self):  # 公开方法，这里是入口方法
         self.__fetch__content()
 
