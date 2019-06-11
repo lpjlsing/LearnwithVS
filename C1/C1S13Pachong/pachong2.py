@@ -3,8 +3,12 @@
 
 """ 
 
+import datetime
+import time
 import re
 from urllib import request
+#from threading import Timer # 定时器
+
 # import requests
  
 # http = urllib3.PoolManager()
@@ -46,9 +50,18 @@ class Spider():
 
     # 入口函数
     def go(self):  # 公开方法，这里是入口方法
+         # 记录该次爬取时间，为了便于后期的分析，开始爬取时记录当前的爬取时间作为该次爬取到的所有数据的爬取时间
+        crawl_start_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 爬取时间
+        print('Time is: ',crawl_start_time)
         htmls = self.__fetch_content()
         self.__analysis(htmls)
-
+    #    # 定时器，定时半小时执行爬取程序，计算整个过程一次爬取时间，1800-爬取所用时间为间隔时长
+    #     crawl_space_time = 1800.0 - (float(int(datetime.datetime.now().timestamp())) - time.mktime(time.strptime(crawl_start_time,'%Y-%m-%d %H:%M:%S')))
+    #     print("==========================================================================================")
+    #     print("       爬取结束!等待下一次爬取,下一次爬取将于[" + str(crawl_space_time) + '] 秒后进行……      ')
+    #     print("==========================================================================================")
+        # t = Timer(crawl_space_time, crawl
+ 
 spider = Spider()
 spider.go()
 
