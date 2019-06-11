@@ -11,6 +11,14 @@
 
 """ 
 from urllib import request
+# import urllib3
+ 
+# http = urllib3.PoolManager()
+# r = http.request('GET', url)
+# print(chardet.detect(r.data))
+# print((r.data).decode('gb2312', 'ignore'))
+# return (r.data).decode('gb2312', 'ignore')
+
 
 class Spider():
     url = 'https://www.douyu.com/g_DOTA2'
@@ -18,7 +26,9 @@ class Spider():
     def __fetch__content(self): # 私有方法 __fetch__, 实例方法需要self
         r = request.urlopen(Spider.url) # 实例方法中读取url
         htmls = r.read()  # bytes 
-        htmls = str(htmls, encoding='utf-8')
+#        htmls.decode('utf-8','ignore')
+        htmls = str(htmls, encoding='utf-8',errors="replace") 
+                              # utf-8编码 strict，replace, ignore
         a = 1
 
     def go(self):  # 公开方法，这里是入口方法
