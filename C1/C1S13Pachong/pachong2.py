@@ -15,6 +15,8 @@ reverse
 
 展示函数 __show()， 这里在把数据传入数据库时可以通过更改这里实现  ******
 
+BeautifulSoup
+
 """ 
 
 import datetime
