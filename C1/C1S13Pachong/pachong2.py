@@ -16,7 +16,7 @@ from urllib import request
 
 class Spider():
     url = 'https://www.huya.com/g/dota2'
-    root_pattern = '<li class="game-live-item" gid="7">([\s\S]*?)<li>'
+    root_pattern = '<span class="txt">([\s\S]*?)</li>'
         # 正则表达式来匹配的字符串定位标签
         # *：匹配一次或多次  ?: 非贪婪匹配
 
