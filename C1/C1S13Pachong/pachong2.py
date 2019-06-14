@@ -42,10 +42,11 @@ class Spider(): # 爬取数据
 
     """
     url = 'https://www.huya.com/g/dota2'
-    root_pattern = '<span class="txt">([\s\S]*?)</li>'
+    root_pattern = '<span class="txt"([\s\S]*?)</li>'
         # 正则表达式来匹配的字符串定位标签    
         # *：匹配一次或多次  ?: 非贪婪匹配    
     name_pattern = '<i class="nick" title=([\s\S]*?)</i>' # re 来定位名字
+    # name_pattern = '(\s\S*)$'
     hot_pattern = '<i class="js-num">([\s\S]*?)</i>' # 定位观看人数
 
     def __fetch_content(self): # 私有方法 __fetch, 实例方法需要self
