@@ -4,7 +4,7 @@
 
 爬虫
 
-加入定时器
+加入定时器  timer()  APSchedular
 
 精炼爬虫模块, 使数据更规范， stripe()函数
 
@@ -24,6 +24,8 @@ import time
 import re
 from urllib import request
 from threading import Timer # 定时器
+from apscheduler.schedulers.blocking import BlockingScheduler
+# from datetime import datetime
 
 # import requests
  
@@ -126,14 +128,20 @@ class Spider(): # 爬取数据
         self.__show(anchors)  # 调用所需函数
 
         # print(anchors)        
-        print('Anchors Finished Time: ', datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-       # 定时器，定时半小时执行爬取程序，计算整个过程一次爬取时间，30S-爬取所用时间为间隔时长
-        crawl_space_time = 30 - (float(int(datetime.datetime.now().timestamp())) - time.mktime(time.strptime(crawl_start_time,'%Y-%m-%d %H:%M:%S')))
-        # print("==========================================================================================")
-        print("       爬取结束!等待下一次爬取,下一次爬取将于[" + str(crawl_space_time) + '] 秒后进行……      ')
-        # print("==========================================================================================")
-        t = Timer(crawl_space_time, Spider)
-        t.start()
+    #     print('Anchors Finished Time: ', datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    #    # 定时器，定时半小时执行爬取程序，计算整个过程一次爬取时间，30S-爬取所用时间为间隔时长
+    #     crawl_space_time = 30 - (float(int(datetime.datetime.now().timestamp())) - time.mktime(time.strptime(crawl_start_time,'%Y-%m-%d %H:%M:%S')))
+    #     # print("==========================================================================================")
+    #     print("       爬取结束!等待下一次爬取,下一次爬取将于[" + str(crawl_space_time) + '] 秒后进行……      ')
+    #     # print("==========================================================================================")
+    #     t = Timer(crawl_space_time, Spider)
+    #     t.start()
+
+        # APSchedular 定时
+        # BlockingScheduler
+        sched = BlockingScheduler()
+        sched.add_job(Spider, 'cron', day_of_week=0-6, hour=0, minute=0, second=30, end_date='20190615')
+        sched.start()
 
 
 
