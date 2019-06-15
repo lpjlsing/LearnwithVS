@@ -45,7 +45,7 @@ class Spider(): # 爬取数据
     root_pattern = '<span class="txt"([\s\S]*?)</li>'
         # 正则表达式来匹配的字符串定位标签    
         # *：匹配一次或多次  ?: 非贪婪匹配    
-    name_pattern = '<i class="nick" title=([\s\S]*?)</i>' # re 来定位名字
+    name_pattern = '<i class="nick" title="([\s\S]*?)</i>' # re 来定位名字
     hot_pattern = '<i class="js-num">([\s\S]*?)</i>' # 定位观看人数
 
     def __fetch_content(self): # 私有方法 __fetch, 实例方法需要self
@@ -79,8 +79,6 @@ class Spider(): # 爬取数据
         sum = 0
         print('Spider Finished Time: ', datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         for html in root_html:  # 找出所有的相似标签
-            # print(Spider.name_pattern[0])
-            # name_pattern = '^>([\s\S]*)'
             name = re.findall(Spider.name_pattern, html)
             hot = re.findall(Spider.hot_pattern, html)
             anchor = {'name':name, 'hot':hot}  # 字典形式存储需要的数据类型
