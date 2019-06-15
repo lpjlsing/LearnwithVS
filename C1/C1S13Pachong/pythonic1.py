@@ -22,4 +22,33 @@ c4 = None
 
 if not a: # not判断a是True or False
 if a is None: # is做判断，a 是否和None是一样
+if a:
+if None: # None只对应False
+
+print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+class D():
+    def __len__(self):
+        return 0  # (True)
+    
+    def __bool__(self):
+        return False 
+
+d = D()
+
+bool(None)
+bool([])
+bool(D)
+if D:    # 对于自定义对象，其值True or False 跟自定义的对象有关
+         # D的真假跟定义的class内部方法相关，而不是只要D存在就一定是真 ******
+    print('T')
+else:
+    print('F')
+print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+
+
+
+
+
+
+
 
