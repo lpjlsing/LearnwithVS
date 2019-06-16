@@ -60,5 +60,45 @@ print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 # 每个内置容器类型，其实就是满足了多个接口定义的组合实体
 
+# python面向接口而非具体实现来编程 ******
+
+# 动态解包:
+# 是指使用 * 或 ** 运算符将可迭代对象“解开”
+# user = {**{"name": "piglei"}, **{"movies": ["Fight Club"]}} 
+
+
+# next():
+# 是一个非常实用的内建函数，它接收一个迭代器作为参数，然后返回该迭代器的下一个元素。
+# 使用它配合生成器表达式，可以高效的实现“*从列表中查找第一个满足条件的成员”*之类的需求。
+numbers = [3, 7, 8, 2, 21]
+# 获取并 **立即返回** 列表里的第一个偶数
+print(next(i for i in numbers if i % 2 == 0))
+
+
+# 有序字典来去重:
+l = [10, 2, 3, 21, 10, 3]
+from collections import OrderedDict  # 有序字典
+l1 = list(OrderedDict.fromkeys(l).keys())
+print(l1)
+
+
+# 枯竭的迭代器:  生成器表达式、map、filter 等内建函数  ******
+# 完整遍历过它们后，之后的重复遍历就不能拿到任何新内容
+
+# 别在循环体内修改被迭代对象：
+# 使用一个新的空列表保存结果，或者利用 yield 返回一个生成器
+def remove_even(numbers):
+    """去掉列表里所有的偶数
+    """
+    for i, number in enumerate(numbers):
+        if number % 2 == 0:
+            # 有问题的代码
+            del numbers[i]
+
+numbers = [1, 2, 7, 4, 8, 11]
+remove_even(numbers)
+print(numbers)
+# OUTPUT: [1, 7, 8, 11]
+
 
 
