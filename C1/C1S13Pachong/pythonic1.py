@@ -101,4 +101,11 @@ print(numbers)
 # OUTPUT: [1, 7, 8, 11]
 
 
+# 异常：
+# with语句在打开文件后会自动调用finally中的关闭文件操作
+# finally 可以用来释放资源
 
+# for语句本身会处理StopIteration异常
+
+# 需要访问一个不确定的属性： 
+# a = getattr(func, 'name', 'default')
