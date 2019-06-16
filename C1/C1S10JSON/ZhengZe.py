@@ -6,6 +6,7 @@
     输出结果为列表
 
 re.findall: 查找， 返回 列表， 而search中group返回 元组
+re.finditer: 替代findall ******
 re.sub: 替换
 re.match: 首字母开始匹配
 re.search: 搜索整个字符串，找到第一个符合的字符串后返回，一次返回第一个出现的匹配字符串
