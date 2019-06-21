@@ -1,3 +1,76 @@
-\begin{{document}}
-    hello, VS
-\end{{document}}
+ 
+\usepackage[a4paper,left=15mm,right=15mm,top=15mm,bottom=15mm]{geometry} % 设置页面的环境,a4纸张大小，左右上下边距信息
+
+\begin{document}
+	
+	\twocolumn %双栏文档中的单栏设置
+	[
+	\begin{@twocolumnfalse}
+	\maketitle %maketitle必须添加在这里，否则摘要会跳转到下一页
+	\begin{abstract}
+		pass
+	\end{abstract}
+	\end{@twocolumnfalse}
+	]
+\newpage
+	
+	%\maketitle
+	\renewcommand{\contentsname}{目录}  %将content转为目录 % renewcommand的使用
+	\tableofcontents\label{目录}
+
+\section{方向}
+FIB
+
+SIMS
+
+
+
+
+8S15 超导量子计算研究
+
+从事超导电路的量子物理与量子工程研究包括量子比特、量子参量放大器、量子模拟芯片等超导量子器件的设计和制备、超导量子芯片的封装技术、微波精密测量、基于超导量子器件的新奇物理和应用等方向的研究
+
+超导物理
+量子计算
+超导电路
+
+LD,PD:
+PECVD, MOCVD
+RIE（反应离子刻蚀）
+APD(雪崩二极管)，RAPD
+pin二极管
+
+噪音消除
+
+光芯片设计
+
+\section{半导体与芯片}
+
+\subsection{低维量子器件}
+ 
+
+\subsection{多晶硅片}
+
+
+\subsection{半导体材料测试分析}
+
+
+\section{python}
+数据库
+
+numpy
+
+matplotlib
+
+\section{量化策略}
+量化模型
+
+基本框架和知识
+
+
+
+
+%\section{参考文献}
+%\bibliographystyle{unsrt} %.cls,.bst文件
+%\bibliography{PbGrowthAndModulation}
+\end{document}
