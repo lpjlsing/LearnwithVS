@@ -1,10 +1,10 @@
 {
     "python.testing.pyTestArgs": [
-        "."
+        "C2"
     ],
-    "python.testing.unittestEnabled": true,
+    "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pyTestEnabled": false,
+    "python.testing.pyTestEnabled": true,
     "git.ignoreLimitWarning": true,
     "python.testing.unittestArgs": [
         "-v",
