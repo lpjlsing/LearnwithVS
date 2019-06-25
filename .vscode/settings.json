@@ -4,7 +4,7 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pyTestEnabled": true,
+    "python.testing.pyTestEnabled": false,
     "git.ignoreLimitWarning": true,
     "python.testing.unittestArgs": [
         "-v",
@@ -12,5 +12,6 @@
         ".",
         "-p",
         "*test.py"
-    ]
+    ],
+    "python.testing.promptToConfigure": false
 }
