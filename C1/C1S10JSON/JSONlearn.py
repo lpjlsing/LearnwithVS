@@ -11,6 +11,8 @@ JSON对象： python中没有这种说法，是JS中说法
 
 JSON在JS中表示对象，python中则为字典 ******
 
+print(json.dumps(data, indent=2))  ******
+
 相比于XML：
 易阅读
 易解析
