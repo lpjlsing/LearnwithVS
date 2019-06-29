@@ -34,7 +34,7 @@ print('a10: ', a10)
 
 
 print('矩阵数组a2的维度：',a2.shape) # a2.shape查看矩阵数组的维度
-print('矩阵a2的数据类型：',a2.dtype)  # dtype 数据类型
+print('矩阵a2的数据类型：',a2.dtype)  # dtype 查看数据类型
 print('矩阵a2的转换数据类型：',a3) # astype
 
 print('行求和：',a2.sum(axis=1))
