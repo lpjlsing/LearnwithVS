@@ -31,6 +31,8 @@ max_columns = a['sd'].max() # max
 # 排序数据
 a.sort_values('aaaa', inplace=True, ascending=False) #默认从小到大、升序排序，缺失值一直放在最后
 a.sort_index # sort_values, sort_index ******
+a.reset_index(drop=True)  # reset_index 给索引值排序
+
 
 c1 = a.isnull(asd) # isnull判断asd是否是空, 找出所有的空值到c1中 ******
 
@@ -43,6 +45,8 @@ d1 = a(index='a1', value=['a2','a3'], aggfunc=np.mean or np.sum)  # a1为统计�
 # dropna
 e1 = a.dropna(axis=0, subset['as1','as2']) # 丢掉对应值，dropna。 axis表示维度，找subset列中的值，然后丢掉
 
-
+#apply
+f1 = a.loc[250]
+a.apply(f1, axis=1) # 返回第251行，第1（axis）列，数据 ******
 
 
