@@ -1,10 +1,14 @@
  """  
- pandas
+pandas
+
+Series: from pandas import Series
 
  """
 
 from pandas import pandas as pd
 from numpy import numpy as np
+
+
 
 #数据读取
 a = pandas.read_csv("test")
@@ -48,5 +52,17 @@ e1 = a.dropna(axis=0, subset['as1','as2']) # 丢掉对应值，dropna。 axis表
 #apply
 f1 = a.loc[250]
 a.apply(f1, axis=1) # 返回第251行，第1（axis）列，数据 ******
+
+
+
+from pandas import Series
+
+
+# Series结构： 为矩阵中一行或者一列
+series_a = a['aa']
+g1 = series_a[3:6] 
+
+
+
 
 
