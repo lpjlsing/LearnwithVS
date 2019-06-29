@@ -58,11 +58,16 @@ a.apply(f1, axis=1) # 返回第251行，第1（axis）列，数据 ******
 from pandas import Series
 
 
-# Series结构： 为矩阵中一行或者一列
-series_a = a['aa']
-g1 = series_a[3:6] 
+# Series结构： 为矩阵中一行或者一列，数据结构为 numpy.ndarray ******
+g2 = a1.values
+g3 = a2.values
+g4 = Series(g3, index=g2) # g3可以使str来作为索引,
+# Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)
 
+g4.reindex # reindex
+g4.set_index('aazz', drop=True)
 
+g['a1':'a2'] # 可以直接做成字典
 
 
 
