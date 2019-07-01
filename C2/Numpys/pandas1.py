@@ -84,17 +84,31 @@ plt.xlable('xlable') # 坐标名称
 
 h3 = plt.figure(figsize=(4,5)) # figure 指定画图域, figsize为画图的大小 ******
 h4 = h3.add_subplots(3,2,x)  # 画出h3的子图形式h4，3行2列第x个子图，从左到右，从上到下 ******
-h4.plot(np.random.randint(1,6,6), np.arange(6), ) # 两个参数分别为x,y 区间或参数范围
+h4.plot(np.random.randint(1,6,6), np.arange(6), c=h5, label='aa', linewidth=10) # 两个参数分别为x,y 区间或参数范围， h5为颜色， 指定label, linewidth ******
 plt.legend(loc='best') # loc: 标签位置, best, right, upper left, lower, center...  legent来添加标签
 
 h4.bar('a','b',0.3) # 柱形bar图，0.3宽度，默认x轴 ******
 h4.set_yticks('a') # 'a'或 columns, set_yticks：设置y轴为主坐标
 h4.set_ylabel('a')
 h4.set_ylim(1,3)  # 设置y的区间 ******
+h4.set_xticklabels(aa, rotation=45) # set_xticklabels
+h4.set_visible(False) # set_visible ******
+h4.set_title('title')
+h4.tick_params(bottom='off', top='off', left='on', right='off') # 坐标上的锯齿显示或关闭
 
 h4.scatter()  # 散点图
 
 h4.hist('aa', bins=20)  # hist: bins，区间范围画图, 划分20个区间 ******
+
+h4.box('aa')  # box： 盒图 ******
+
+
+# 颜色
+h5 = (120/255, 220/255, 50/255) # 三元色
+
+
+# 添加文字
+h4.text(x, y, 'text')  # x,y指对应的位置
 
 
 plot.show() # plot.show 来显示图
