@@ -77,14 +77,25 @@ h1 = pd.to_datetime(unrate['date'])
 import matplotlib.pyplot as plt
 
 h2 = unrate[0:12]
-plt.plot(h2['date'],h2['value'])
+plt.plot(h2['date'],h2['value'], c=colors[1,2,3], label=label)
 plt.xticks(rotation=45) # xticks: 修改x坐标 ******
 plt.xlable('xlable') # 坐标名称
-plt.show()
+# plt.show()
 
-h3 = plt.figure() # figure 指定画图域 ******
-h4 = h3.add_subplot(3,2,x)  # 画出h3的子图形式h4，3行2列第x个子图，从左到右，从上到下 ******
+h3 = plt.figure(figsize=(4,5)) # figure 指定画图域, figsize为画图的大小 ******
+h4 = h3.add_subplots(3,2,x)  # 画出h3的子图形式h4，3行2列第x个子图，从左到右，从上到下 ******
+h4.plot(np.random.randint(1,6,6), np.arange(6), ) # 两个参数分别为x,y 区间或参数范围
+plt.legend(loc='best') # loc: 标签位置, best, right, upper left, lower, center...  legent来添加标签
+
+h4.bar('a','b',0.3) # 柱形bar图，0.3宽度，默认x轴 ******
+h4.set_yticks('a') # 'a'或 columns, set_yticks：设置y轴为主坐标
+h4.set_ylabel('a')
+h4.set_ylim(1,3)  # 设置y的区间 ******
+
+h4.scatter()  # 散点图
+
+h4.hist('aa', bins=20)  # hist: bins，区间范围画图, 划分20个区间 ******
 
 
-
+plot.show() # plot.show 来显示图
 
