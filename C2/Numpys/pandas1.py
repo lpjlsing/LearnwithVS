@@ -3,6 +3,8 @@ pandas
 
 Series: from pandas import Series
 
+matplotlib
+
  """
 
 from pandas import pandas as pd
@@ -68,6 +70,21 @@ g4.reindex # reindex
 g4.set_index('aazz', drop=True)
 
 g['a1':'a2'] # 可以直接做成字典
+
+# def to_datetime(arg, errors='raise', dayfirst=False, yearfirst=False, utc=None, box=True, format=None, exact=True, unit=None, infer_datetime_format=False, origin='unix', cache=False)
+h1 = pd.to_datetime(unrate['date'])
+
+import matplotlib.pyplot as plt
+
+h2 = unrate[0:12]
+plt.plot(h2['date'],h2['value'])
+plt.xticks(rotation=45) # xticks: 修改x坐标 ******
+plt.xlable('xlable') # 坐标名称
+plt.show()
+
+h3 = plt.figure() # figure 指定画图域 ******
+h4 = h3.add_subplot(3,2,x)  # 画出h3的子图形式h4，3行2列第x个子图，从左到右，从上到下 ******
+
 
 
 
