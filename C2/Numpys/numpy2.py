@@ -18,5 +18,23 @@ print(a)
 
 # 数值范围内创建数组
 np.arange()
-np.linspace()
-np.logspace()
+np.linspace(2, 10, num=100, endpoint=False) # num= 可省略不写，表示区间内均分取num个点数, 结束点默认True 
+np.logspace() # log坐标
+
+# 已有数组创建数组
+np.asarray(a) 
+np.empty_like()
+np.zeros_like()
+np.ones_like()
+
+# 重复
+a2 = np.range(3)
+np.tile(a2, (2,3)) # 重复数组a2， (2,3)次
+a3 = a2.repeat(2) # 重复每个元素2次
+
+# 网格化
+
+
+
+
+
