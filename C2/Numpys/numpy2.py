@@ -10,7 +10,7 @@ import numpy as np
 # ndarray.astype()修改元素类型
 # ndarray.reshape()重新定义数组结构
 
-np.array() np.zeros  np.empty  np.ones  
+# np.array() np.zeros  np.empty  np.ones  
 np.eye(4, 5, k=-1) # 对角矩阵, k=-1表示偏移对角向下移1格
 np.random.random(3)
 a = np.random.randint(4, 5, size=(2, 3)) # zise= 可省略不写
@@ -58,4 +58,6 @@ a6 = np.array([[1,2,3],[4,5,6]])
 a6.ravel() # 返回一维数组
 a6.rezise() # resize直接更改了原数组a6，而reshape不改变原矩阵 ******
 
-a9 = np.rollaxis(a5, 2, 1)  # a5中换第3个轴移到第2个位置，其他轴相对顺序改变
+a9 = np.rollaxis(a5, 2, 1)  # rollaxis: a5中换第3个轴移到第2个位置，其他轴相对顺序改变
+a10 = np.rollaxis(a5, 1, 2) 
+np.moveaxis()  # moveaxis(a, source, destination)
