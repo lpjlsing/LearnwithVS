@@ -59,12 +59,19 @@ a6.ravel() # 返回一维数组
 a6.rezise() # resize直接更改了原数组a6，而reshape不改变原矩阵 ******
 
 a9 = np.rollaxis(a5, 2, 1)  # rollaxis: a5中换第3个轴移到第2个位置，其他轴相对顺序改变
+
 a10 = np.rollaxis(a5, 1, 2) 
 a11 = np.moveaxis(a5, 1, 2)  # moveaxis(a, source, destination)， 和rollaxis位置有所区别
 a10.max(axis=0) # 每列最大输出为一行
 a10.max(axis=1) # 每行最大输出为一列
 
 # 数组合并 ******
+# stack : 只出入一个tup类型, Join a sequence of arrays along a new axis. vstack : Stack along first axis. hstack : Stack along second axis. concatenate : Join a sequence of arrays along an existing axis
 np.append(a9, a11, axis=0)  # 合并数组，使a11第1个轴到a9第1行。axis默认为flatten形式合并，axis=1表示ndarray 的第二个轴，这里 np.shape(a9)=(2,4,3)，第二个轴为4
 np.concatenate(a9, a11) # 合并数组到一个元组
+np.hstack() np.vstack np.dstack # dstack至少3个轴, 在第三个轴stack ******
+
+
+
+
 
