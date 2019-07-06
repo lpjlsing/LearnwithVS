@@ -71,7 +71,7 @@ np.append(a9, a11, axis=0)  # 合并数组，使a11第1个轴到a9第1行。axis
 np.concatenate(a9, a11) # 合并数组到一个元组
 # np.hstack() np.vstack np.dstack # dstack至少3个轴, 在第三个轴stack ******
 x, y, z = np.hsplit(a, 3) # 3表示拆分为3组数组需同时传入三个接受数组x,y,z
-
+                          # hsplit(ary, indices_or_sections)
 
 
 
