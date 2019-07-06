@@ -65,12 +65,12 @@ a11 = np.moveaxis(a5, 1, 2)  # moveaxis(a, source, destination)， 和rollaxis�
 a10.max(axis=0) # 每列最大输出为一行
 a10.max(axis=1) # 每行最大输出为一列
 
-# 数组合并 ******
+# 数组合并和拆分 ******
 # stack : 只出入一个tup类型, Join a sequence of arrays along a new axis. vstack : Stack along first axis. hstack : Stack along second axis. concatenate : Join a sequence of arrays along an existing axis
 np.append(a9, a11, axis=0)  # 合并数组，使a11第1个轴到a9第1行。axis默认为flatten形式合并，axis=1表示ndarray 的第二个轴，这里 np.shape(a9)=(2,4,3)，第二个轴为4
 np.concatenate(a9, a11) # 合并数组到一个元组
-np.hstack() np.vstack np.dstack # dstack至少3个轴, 在第三个轴stack ******
-
+# np.hstack() np.vstack np.dstack # dstack至少3个轴, 在第三个轴stack ******
+x, y, z = np.hsplit(a, 3) # 3表示拆分为3组数组需同时传入三个接受数组x,y,z
 
 
 
