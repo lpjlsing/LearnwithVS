@@ -97,3 +97,20 @@ np.load() # save, load, 貌似现在不使用 pickle 办法了 ******
 # 文本
 np.savetxt('name', a10) # 保存文本格式，loadtxt
  
+# 函数
+np.around(a10, decimals)
+np.floor(a10) # 去尾
+np.ceil(a10) # 进一
+np.sum 
+np.nansum # 
+np.cumsum # 指定轴求累进和
+np.prod # 积
+np.diff # 差
+np.ptp # 最大差值
+np.var # 方差
+np.std # 标准差
+np.median # 中位数
+np.mean # 平均值
+np.average # 加权平均 average(a, axis=None, weights=None, returned=False)
+
+
