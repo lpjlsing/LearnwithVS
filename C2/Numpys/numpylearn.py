@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
 # In[1]:
 
 
@@ -320,7 +321,4 @@ np.shape(np.dstack((a18,a19)))
 
 
 # In[ ]:
-
-
-es
 

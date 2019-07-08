@@ -73,5 +73,16 @@ np.concatenate(a9, a11) # 合并数组到一个元组
 x, y, z = np.hsplit(a, 3) # 3表示拆分为3组数组需同时传入三个接受数组x,y,z
                           # hsplit(ary, indices_or_sections)
 
+# 数组排序
+np.sort() # sort(a, axis=-1, kind='quicksort/mergesort/heapsort', order=None)
+np.argsort() # argsort(a, axis=-1, kind='quicksort', order=None)
+             # 返回索引值
+
+# 查找
+np.argmax(a10, axis=1, out=None) # 返回索引值
+np.nonzero(a10)
+np.where(a < 4, a, a*10) 
+
+# 增删元素
 
 
