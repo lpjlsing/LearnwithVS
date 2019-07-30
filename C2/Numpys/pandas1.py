@@ -1,7 +1,7 @@
  """  
 pandas
 
-Series: from pandas import Series
+Series: from pandas import Series, DataFrame(表格化数据)
 
 matplotlib
 

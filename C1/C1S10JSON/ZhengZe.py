@@ -45,6 +45,48 @@ re,span：返回匹配到的字符串的位置
            动态替换：可以替换为函数。可以通过把函数当成参数，动态的替换字符串 ******
       re.replace --> 字符串本身不可变，如要替换操作，需重新生成字符串然后替换
 
+
+字符串的匹配查询:
+re模块中的findall函数可以对指定的字符串进行遍历匹配，获取字符串中所有匹配的子串，并返回一个列表结果。该函数的参数含义如下：
+
+findall(pattern, string, flags=0)
+
+pattern：指定需要匹配的正则表达式。
+
+string：指定待处理的字符串。
+
+flags：指定匹配模式，常用的值可以是re.I、re.M、re.S和re.X。re.I的模式是让正则表达式对大小写不敏感；re.M的模式是让正则表达式可以多行匹配；re.S的模式指明正则符号.可以匹配任意字符，包括换行符 ；re.X模式允许正则表达式可以写得更加详细，如多行表示、忽略空白字符、加入注释等。
+
+字符串的匹配替换
+
+re模块中的sub函数的功能是替换，类似于字符串的replace方法，该函数根据正则表达式把满足匹配的内容替换为repl。该函数的参数含义如下：
+
+sub(pattern, repl, string, count=0, flags=0)
+
+pattern：同findall函数中的pattern。
+
+repl：指定替换成的新值。
+
+string：同findall函数中的string。
+
+count：用于指定最多替换的次数，默认为全部替换。
+
+flags：同findall函数中的flags。
+
+字符串的匹配分割
+
+re模块中的split函数是将字符串按照指定的正则表达式分隔开，类似于字符串的split方法。该函数的具体参数含义如下：
+
+split(pattern, string, maxsplit=0, flags=0)
+
+pattern：同findall函数中的pattern。
+
+maxsplit：用于指定最大分割次数，默认为全部分割。
+
+string：同findall函数中的string。
+
+flags：同findall函数中的flag
+
  """
 
 import re # regular expression，导入正则表达式包

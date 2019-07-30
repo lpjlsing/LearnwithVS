@@ -1,6 +1,8 @@
 '''
 numpy: 进阶
 
+pyhton数组 VS. numpy数组
+
 '''
 import numpy as np 
 
@@ -90,12 +92,13 @@ np.unique # 去重，unique(ar, return_index=False旧列表位置, return_invers
           # unique会展开数组至一维结构
 
 # IO：
-# 二进制文件格式
+# 二进制文件格式binary
 np.save(file, Array data to be saved, allow_pickle=True, fix_imports=True) # pickle操作file之前先对对象进行序列化或反序列化，.npy
 np.savez(file, *arr, **kwds) # 保存多个数组写入进文件，保存为原始未压缩二进制文件, .npz
 np.load() # save, load, 貌似现在不使用 pickle 办法了 ******
-# 文本
+# 文本txt
 np.savetxt('name', a10) # 保存文本格式，loadtxt
+# CSV
  
 # 函数
 np.around(a10, decimals)
