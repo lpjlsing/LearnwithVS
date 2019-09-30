@@ -85,7 +85,7 @@ def build_pattern_string_lookup_table(pattern_string):
     length_of_pattern = len(pattern_string)
 
     for index in range(1, length_of_pattern):
-        # 将模式字符串的所有字符串前缀添加进字符串前缀集合
+        # 将模式字符串的所有字符串前缀添加进字符串前缀集合 ***
         string_prefixes.add(pattern_string[:index])
         string_suffixes = {pattern_string[suffix_index:index + 1]
                            for suffix_index in range(1, index + 1)}
